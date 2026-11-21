@@ -10,7 +10,7 @@ function App() {
       <Header
         nome="Gildevan Carlos Pereira dos Santos"
         descricao="Tenho 33 anos, estudo programação e quero trabalhar com desenvolvimento web."
-        foto="/minhafoto.jpg"
+       foto="/fotoperfil.jpeg"
       />
       <main>
         <Habilidades />
