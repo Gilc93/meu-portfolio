@@ -9,7 +9,7 @@ function App() {
     <div className="site">
       <Header
         nome="Gildevan Carlos Pereira dos Santos"
-        descricao="Tenho 35 anos, estudo programação e quero trabalhar com desenvolvimento web."
+        descricao="Tenho 33 anos, estudo programação e quero trabalhar com desenvolvimento web."
         foto="/minhafoto.jpg"
       />
       <main>
