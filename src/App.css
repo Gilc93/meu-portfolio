@@ -1,113 +1,236 @@
-/* ===== Geral ===== */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap');
+
+/* ===== Cores (troque aqui para mudar o site todo) ===== */
+:root {
+  --azul: #111111;
+  --azul-escuro: #000000;
+  --ambar: #f0a202;
+  --fundo: #f4f4f2;
+  --texto: #22262b;
+  --texto-suave: #5b6470;
+  --linha: #cfd2cc;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, sans-serif;
-  background-color: #eef1f7;
-  color: #2b2f3a;
-  line-height: 1.6;
+  font-family: 'Source Sans 3', Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.65;
+  background-color: var(--fundo);
+  color: var(--texto);
 }
 
+/* ===== Layout: barra lateral + conteúdo ===== */
 .site {
-  max-width: 850px;
-  margin: 0 auto;
-  padding: 30px 20px;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  min-height: 100vh;
 }
 
-/* ===== Cabeçalho (apresentação) ===== */
 .header {
+  grid-row: 1 / span 2;
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100vh;
   display: flex;
-  align-items: center;
-  gap: 35px;
-  background-color: #2b3280;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+  padding: 40px 36px;
+  background-color: var(--azul);
   color: white;
-  padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(43, 50, 128, 0.35);
+  border-top: 8px solid var(--ambar);
 }
 
 .foto {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
+  width: 100%;
+  max-width: 260px;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  border: 5px solid #2ec4b6;
+  object-position: center top;
+  border-radius: 4px;
 }
 
 .header h1 {
   margin: 0 0 12px 0;
-  font-size: 32px;
-  line-height: 1.2;
+  font-family: 'Bricolage Grotesque', Arial, sans-serif;
+  font-size: 34px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 .header p {
   margin: 0;
   font-size: 17px;
-  color: #dfe3ff;
+  color: #d0d0d0;
 }
 
-/* ===== Seções ===== */
+main {
+  grid-column: 2;
+  padding: 70px 70px 20px 70px;
+}
+
+/* ===== Seções (sem cards, só espaço e linhas) ===== */
 .secao {
-  margin-top: 30px;
-  padding: 30px;
-  background-color: white;
-  border-radius: 16px;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  max-width: 720px;
+  margin-bottom: 70px;
 }
 
 .secao h2 {
-  margin: 0 0 20px 0;
-  font-size: 24px;
-  color: #2b3280;
+  margin: 0 0 22px 0;
+  font-family: 'Bricolage Grotesque', Arial, sans-serif;
+  font-size: 32px;
+  line-height: 1.2;
 }
 
-.secao h2::after {
-  content: '';
-  display: block;
-  width: 50px;
-  height: 4px;
-  margin-top: 6px;
-  background-color: #2ec4b6;
-  border-radius: 2px;
+.secao p {
+  margin: 0;
+  max-width: 65ch;
 }
 
-/* ===== Habilidades (viram etiquetas) ===== */
+/* ===== Habilidades (lista em duas colunas) ===== */
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 40px;
 }
 
 .habilidade {
-  background-color: #e8ebfa;
-  color: #2b3280;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--linha);
+}
+
+.habilidade span {
+  color: var(--texto-suave);
 }
 
 /* ===== Botões ===== */
 button {
-  background-color: #2b3280;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: var(--azul);
   color: white;
   border: none;
-  padding: 10px 18px;
-  margin-right: 8px;
-  border-radius: 8px;
+  padding: 9px 18px;
+  border-radius: 3px;
   cursor: pointer;
-  font-size: 15px;
-  font-family: inherit;
 }
 
 button:hover {
-  background-color: #1f2561;
+  background-color: var(--azul-escuro);
 }
 
 button:focus-visible {
-  outline: 3px solid #2ec4b6;
+  outline: 3px solid var(--ambar);
+  outline-offset: 2px;
+}
+
+/* ===== Abas do Sobre mim (só sublinhado) ===== */
+.abas {
+  display: flex;
+  gap: 28px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--linha);
+}
+
+.abas button {
+  background: none;
+  color: var(--texto-suave);
+  padding: 8px 0;
+  border-radius: 0;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -1px;
+}
+
+.abas button:hover {
+  background: none;
+  color: var(--texto);
+}
+
+.abas button.ativa {
+  color: var(--texto);
+  border-bottom-color: var(--ambar);
+}
+
+/* ===== Projetos (lista com linhas) ===== */
+.projeto {
+  padding: 26px 0;
+  border-top: 1px solid var(--linha);
+}
+
+.projeto h3 {
+  margin: 0 0 6px 0;
+  font-family: 'Bricolage Grotesque', Arial, sans-serif;
+  font-size: 22px;
+}
+
+.projeto p {
+  margin: 0 0 16px 0;
+}
+
+.projeto .detalhes {
+  margin: 18px 0 0 0;
+  padding: 14px 18px;
+  background-color: #e8eae5;
+  border-left: 4px solid var(--ambar);
+  color: var(--texto);
+}
+
+/* ===== Rodapé ===== */
+.rodape {
+  grid-column: 2;
+  padding: 30px 70px 50px 70px;
+  font-size: 16px;
+  color: var(--texto-suave);
+}
+
+.rodape p {
+  margin: 4px 0;
+}
+
+a {
+  color: var(--azul);
+  text-decoration-color: var(--ambar);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+/* ===== Celular e tela pequena ===== */
+@media (max-width: 850px) {
+  .site {
+    display: block;
+  }
+
+  .header {
+    position: static;
+    height: auto;
+    padding: 32px 24px;
+  }
+
+  .foto {
+    max-width: 180px;
+  }
+
+  main {
+    padding: 40px 24px 10px 24px;
+  }
+
+  .rodape {
+    padding: 20px 24px 40px 24px;
+  }
+
+  ul {
+    grid-template-columns: 1fr;
+  }
+}
